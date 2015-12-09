@@ -18,6 +18,8 @@ from .tasks import get_transcriptome_stats_task, \
                    get_transdecoder_orf_task, \
                    get_hmmscan_task, \
                    get_cmscan_task, \
+                   do_salmon_index, \
+                   do_salmon_mapping, \
                    get_lastal_task, \
                    get_crb_blast_task, \
                    get_sanitize_fasta_task, \
@@ -225,4 +227,3 @@ class AnnotateHandler(object):
         tasks.extend(report_tasks)
 
         return results, tasks
-
