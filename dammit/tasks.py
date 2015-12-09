@@ -319,6 +319,25 @@ def get_cat_task(file_list, target_fn):
 
 
 @create_task_object
+def do_salmon_index(input_filename):
+    
+    exc = which('salmon')
+    cmd = '{exc} index -t {input_filename} -i salmon_index_name --type quasi -k 31 '
+
+
+#~/salmon-0.5.1/bin/salmon index -t /mnt/mc/assembly/Montastrea.trinity.v2.fasta -i transcripts_index --type quasi -k 31
+
+
+@create_task_object
+def do_salmon_mapping(read1, read2, n_threads):
+    
+    exc = which('salmon')
+    cmd = '{exc} quant -p {n_threads}-i salmon_index_name -l IU -1 Thomas_McOr*_R1.PF.cor.fq -2 Thomas_McOr*_R2.PF.cor.fq -o salmon_output '
+
+
+#~/salmon-0.5.1/bin/salmon quant -p 4 -i salmon_index_name -l IU -1 <(gzip -cd ../reads/Thomas_McOr*_R1.PF.cor.fq.gz) -2 <(gzip -cd ../reads/Thomas_McOr*_R2.PF.cor.fq.gz) -o salmon_McOr
+
+@create_task_object
 def get_busco_task(input_filename, output_name, busco_db_dir, input_type,
                    n_threads, busco_cfg):
     
