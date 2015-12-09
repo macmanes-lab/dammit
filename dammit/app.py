@@ -139,6 +139,17 @@ class DammitApp(object):
                                           ' with `.dammit` appended'
                                      )
 
+        annotate_parser.add_argument('-l', '--left', 
+                                     default=None,
+                                     help='left read used for transcriptome assembly'
+                                     )
+
+        annotate_parser.add_argument('-r', '--right', 
+                                     default=None,
+                                     help='left read used for transcriptome assembly'
+                                     )
+
+
         annotate_parser.add_argument('--n_threads', 
                                      type=int, 
                                      default=1,
